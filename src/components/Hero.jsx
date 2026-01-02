@@ -34,11 +34,10 @@ export default function Hero() {
               <span className="text-white">Creator.</span>
             </h1>
 
-            <p className="text-xl text-white/60 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-xl text-white/60 mb-10 max-w-xl mx-auto lg:mx-0 leading-tight">
               Hi, I'm <span className="text-white font-semibold">Ifeoluwa</span>{" "}
-              — crafting intuitive digital experiences through design, code,
-              content, and AI-powered workflows.
-            </p>
+              — designing and building digital products at the intersection of code, design, and AI <br />
+              DESIGN meets CODE</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a

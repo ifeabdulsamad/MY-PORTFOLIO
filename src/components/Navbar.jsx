@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, FileText, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const navLinks = [
+    { name: 'home', href: '#home' },
+    { name: 'about', href: '#about' },
+    { name: 'projects', href: '#portfolio' },
+    { name: 'contact', href: '#contact' },
+];
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -14,12 +21,39 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-    const navLinks = [
-        { name: 'home', href: '#home' },
-        { name: 'about', href: '#about' },
-        { name: 'projects', href: '#portfolio' },
-        { name: 'experience', href: '#experience' },
-    ];
+
+    // Intersection Observer for active section highlighting
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    // Find the nav link that matches this id
+                    const match = navLinks.find(link => link.href === `#${id}`);
+                    if (match) {
+                        setActiveSection(match.name);
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observe all sections mentioned in navLinks
+        navLinks.forEach(link => {
+            const sectionId = link.href.replace('#', '');
+            const element = document.getElementById(sectionId);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const socialLinks = [
         { icon: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>, href: 'https://x.com/Ife_abdulsamad', label: 'Twitter/X' },

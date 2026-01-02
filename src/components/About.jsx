@@ -13,7 +13,6 @@ const skills = [
     { name: "GitHub", icon: "https://cdn.simpleicons.org/github/white" },
     { name: "Git", icon: "/assets/git.png" },
     { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28" },
-    { name: "AWS", icon: "https://cdn.simpleicons.org/amazonservices/FF9900" },
     { name: "Python", icon: "/assets/python.png" },
     { name: "HTML5", icon: "/assets/html.png" },
     { name: "CSS3", icon: "/assets/text.png" },

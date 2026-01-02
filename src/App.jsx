@@ -23,7 +23,6 @@ function App() {
         <Portfolio />
         <Contact />
       </main>
-      <Footer />
     </div >
   );
 }
