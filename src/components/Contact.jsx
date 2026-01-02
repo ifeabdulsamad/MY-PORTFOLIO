@@ -2,11 +2,10 @@ import { motion } from 'framer-motion';
 import {
     Mail,
     MapPin,
-    Send,
     Linkedin,
     Github,
-    Twitter,
     Instagram,
+    FileText,
 } from 'lucide-react';
 
 export default function Contact() {
@@ -20,162 +19,84 @@ export default function Contact() {
             id="contact"
             className="relative py-28 md:py-36 overflow-hidden"
         >
-            <div className="container mx-auto max-w-7xl px-6 md:px-12">
+            <div className="container mx-auto md:px-12 ">
 
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center max-w-3xl mx-auto mb-24"
+                // className="text-center max-w-3xl mx-auto mb-24"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                        Let’s Build Something
-                        <span className="block text-primary mt-2">Meaningful Together</span>
-                    </h2>
 
-                    <p className="text-slate-400 text-lg leading-relaxed">
+                    <div className="text-center mb-14">
+                        <h2 className="text-3xl md:text-4xl font-light mb-4 text-white">
+                            Let’s Build <span className="text-primary">Innovative Projects </span>
+
+                            together</h2>
+                        <div className="w-20 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto opacity-50" />
+                    </div>
+                    <p className=" text-center text-slate-400 text-lg leading-tight">
                         Whether you have an idea, a project, or just want to talk tech —
-                        I’m open to collaborations, freelance work, and interesting
-                        conversations.
+                        I’m open to collaborations, freelance work...
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
-
-                    {/* Left Side */}
+                <div className="w-full mx-auto">
+                    {/* Info Cards */}
                     <motion.div
-                        initial={{ opacity: 0, x: -60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="space-y-10"
+                        className="grid md:grid-cols-2 gap-8 w-full"
                     >
-                        {/* Info Cards */}
-                        <div className="space-y-6">
-                            <div className="glass p-7 rounded-2xl border border-slate-700/50 hover:border-primary/40 transition">
-                                <div className="flex gap-4 items-start">
-                                    <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
-                                        <Mail size={24} />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-lg font-semibold mb-1">
-                                            Email
-                                        </h4>
-                                        <a
-                                            href="mailto:akinpeluifeoluwaa@gmail.com"
-                                            className="text-slate-400 hover:text-primary transition"
-                                        >
-                                            akinpeluifeoluwaa@gmail.com
-                                        </a>
-                                    </div>
-                                </div>
+                        <div className="glass p-10 rounded-3xl border border-slate-700/50 hover:border-primary/40 transition flex flex-col items-center text-center group">
+                            <div className="w-16 h-16 rounded-2xl bg-primary/15 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                <Mail size={32} />
                             </div>
-
-                            <div className="glass p-7 rounded-2xl border border-slate-700/50 hover:border-primary/40 transition">
-                                <div className="flex gap-4 items-start">
-                                    <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
-                                        <MapPin size={24} />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-lg font-semibold mb-1">
-                                            Availability
-                                        </h4>
-                                        <p className="text-slate-400">
-                                            Remote · Global · Flexible
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <h4 className="text-xl font-normal mb-2 text-white">Email</h4>
+                            <a
+                                href="mailto:akinpeluifeoluwaa@gmail.com"
+                                className="text-slate-400 hover:text-primary transition text-lg font-light"
+                            >
+                                akinpeluifeoluwaa@gmail.com
+                            </a>
                         </div>
 
-                        {/* Socials */}
-                        <div>
-                            <p className="text-slate-400 mb-4">
-                                Or find me on
+                        <div className="glass p-10 rounded-3xl border border-slate-700/50 hover:border-primary/40 transition flex flex-col items-center text-center group">
+                            <div className="w-16 h-16 rounded-2xl bg-primary/15 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                <MapPin size={32} />
+                            </div>
+                            <h4 className="text-xl font-normal mb-2 text-white">Availability</h4>
+                            <p className="text-slate-400 text-lg font-light">
+                                Remote · Global · Flexible
                             </p>
-                            <div className="flex gap-4">
-                                {[
-                                    { icon: <Linkedin />, href: 'https://www.linkedin.com/in/ifeoluwa-akinpelu/' },
-                                    { icon: <Github />, href: 'https://github.com' },
-                                    { icon: <Twitter />, href: '#' },
-                                    { icon: <Instagram />, href: 'https://www.instagram.com/' },
-                                ].map((item, i) => (
-                                    <a
-                                        key={i}
-                                        href={item.href}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="w-12 h-12 rounded-xl glass flex items-center justify-center border border-slate-700/50 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1"
-                                    >
-                                        {item.icon}
-                                    </a>
-                                ))}
-                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Right Side – Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="glass p-10 rounded-2xl border border-slate-700/50">
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div>
-                                    <label className="block mb-2 text-sm text-slate-300">
-                                        Name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        required
-                                        placeholder="Your name"
-                                        className="w-full rounded-xl bg-slate-900/60 border border-slate-700 px-5 py-4 text-white focus:ring-2 focus:ring-primary outline-none transition"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block mb-2 text-sm text-slate-300">
-                                        Email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        required
-                                        placeholder="you@example.com"
-                                        className="w-full rounded-xl bg-slate-900/60 border border-slate-700 px-5 py-4 text-white focus:ring-2 focus:ring-primary outline-none transition"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block mb-2 text-sm text-slate-300">
-                                        Message
-                                    </label>
-                                    <textarea
-                                        rows={5}
-                                        required
-                                        placeholder="Tell me what you want to build…"
-                                        className="w-full rounded-xl bg-slate-900/60 border border-slate-700 px-5 py-4 text-white focus:ring-2 focus:ring-primary outline-none resize-none transition"
-                                    />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="w-full btn-primary py-4 flex items-center justify-center gap-2 group"
-                                >
-                                    Send Message
-                                    <Send
-                                        size={18}
-                                        className="group-hover:translate-x-1 transition-transform"
-                                    />
-                                </button>
-
-                                <p className="text-sm text-slate-500 text-center">
-                                    I usually reply within 24–48 hours.
-                                </p>
-                            </form>
-                        </div>
-                    </motion.div>
+                    {/* Socials */}
+                    <div className="flex flex-wrap justify-center gap-6 ">
+                        {[
+                            { icon: <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>, href: 'https://x.com/Ife_abdulsamad', label: 'Twitter/X' },
+                            { icon: <Github size={24} />, href: 'https://github.com/ifeabdulsamad', label: 'GitHub' },
+                            { icon: <Linkedin size={24} />, href: 'https://www.linkedin.com/in/ifeoluwa-akinpelu', label: 'LinkedIn' },
+                            { icon: <Instagram size={24} />, href: 'https://www.instagram.com/ifeabdulsamad?igsh=MThqdmJjbDBobmg=', label: 'Instagram' },
+                            { icon: <FileText size={24} />, href: '#', label: 'Resume' },
+                        ].map((item, i) => (
+                            <a
+                                key={i}
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-14 h-14 rounded-2xl glass flex items-center justify-center border border-slate-700/50 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-2"
+                                aria-label={item.label}
+                            >
+                                {item.icon}
+                            </a>
+                        ))}
+                    </div>
                 </div>
+
             </div>
         </section>
     );

@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, FileText } from 'lucide-react';
+import { Menu, X, Github, Linkedin, FileText, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const navLinks = [
+    { name: 'home', href: '#home' },
+    { name: 'about', href: '#about' },
+    { name: 'projects', href: '#portfolio' },
+    { name: 'contact', href: '#contact' },
+];
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,17 +21,46 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-    const navLinks = [
-        { name: 'home', href: '#home' },
-        { name: 'about', href: '#about' },
-        { name: 'projects', href: '#portfolio' },
-    ];
+
+    // Intersection Observer for active section highlighting
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    // Find the nav link that matches this id
+                    const match = navLinks.find(link => link.href === `#${id}`);
+                    if (match) {
+                        setActiveSection(match.name);
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observe all sections mentioned in navLinks
+        navLinks.forEach(link => {
+            const sectionId = link.href.replace('#', '');
+            const element = document.getElementById(sectionId);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const socialLinks = [
-        { icon: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>, href: '#', label: 'Twitter/X' },
-        { icon: <Github className="w-5 h-5" />, href: '#', label: 'GitHub' },
-        { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
-        { icon: <FileText className="w-5 h-5" />, href: '#', label: 'Resume' },
+        { icon: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>, href: 'https://x.com/Ife_abdulsamad', label: 'Twitter/X' },
+        { icon: <Github className="w-5 h-5" />, href: 'https://github.com/ifeabdulsamad', label: 'GitHub', target: "_blank" },
+        { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/ifeoluwa-akinpelu', label: 'LinkedIn', target: "_blank" },
+        { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/ifeabdulsamad?igsh=MThqdmJjbDBobmg=', label: 'Instagram', target: "_blank" },
+        { icon: <FileText className="w-5 h-5" />, href: '#', label: 'Resume', target: "_blank" },
     ];
 
     useEffect(() => {
@@ -56,7 +92,7 @@ export default function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '10px', paddingBottom: '10px' }}
-                                className={`relative rounded-full text-xl font-light transition-colors duration-300 ${activeSection === link.name
+                                className={`relative rounded-full text-md font-light transition-colors duration-300 ${activeSection === link.name
                                     ? 'text-white'
                                     : 'text-slate-300 hover:text-white'
                                     }`}
@@ -66,8 +102,8 @@ export default function Navbar() {
                                 {activeSection === link.name && (
                                     <motion.span
                                         layoutId="active-pill"
-                                        className="absolute inset-0 bg-white/10 rounded-full"
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        className="absolute inset-0 bg-[#ff540060] rounded-full"
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
                                     />
                                 )}
                             </a>
@@ -81,6 +117,8 @@ export default function Navbar() {
                         <a
                             key={index}
                             href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-slate-300 hover:text-white transition-colors"
                             aria-label={social.label}
                         >
@@ -154,6 +192,8 @@ export default function Navbar() {
                                             <a
                                                 key={index}
                                                 href={social.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="text-white/60 hover:text-white transition-colors transform hover:scale-110 duration-200"
                                                 aria-label={social.label}
                                             >
