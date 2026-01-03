@@ -9,7 +9,6 @@ export default function Hero() {
     >
       {/* Background Elements */}
 
-
       <div className="container mx-auto px-6 md:px-12 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Text Content */}
@@ -17,7 +16,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -34,10 +33,12 @@ export default function Hero() {
               <span className="text-white">Creator.</span>
             </h1>
 
-            <p className="text-xl text-white/60 mb-10 max-w-xl mx-auto lg:mx-0 leading-tight">
+            <p className="text-xl text-white/60 mb-10 max-w-xl w-full md:w-3/4 lg:w-auto leading-tight md:text-center lg:text-left">
               Hi, I'm <span className="text-white font-semibold">Ifeoluwa</span>{" "}
-              — designing and building digital products at the intersection of code, design, and AI <br />
-              DESIGN meets CODE</p>
+              — designing and building digital products at the intersection of
+              code, design, and AI <br />
+              DESIGN meets CODE
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
