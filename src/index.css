@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ff5000;
-  --color-primary-glow: rgba(255, 80, 0, 0.5);
+  --color-primary: #ff8c42;
+  --color-primary-glow: rgba(255, 140, 66, 0.5);
   --color-bg-dark: #120040;
   --color-bg-card: rgba(18, 0, 64, 0.7);
   --font-main: 'Roboto', system-ui, -apple-system, sans-serif;
@@ -13,8 +13,8 @@
   --bg-card: rgba(18, 0, 64, 0.7);
   --text-primary: #f8fafc;
   --text-secondary: #e2e8f0;
-  --primary: #ff5000;
-  --primary-glow: rgba(255, 80, 0, 0.5);
+  --primary: #ff8c42;
+  --primary-glow: rgba(255, 140, 66, 0.5);
   --glass-border: rgba(255, 255, 255, 0.1);
   --font-main: 'Roboto', system-ui, -apple-system, sans-serif;
 }
