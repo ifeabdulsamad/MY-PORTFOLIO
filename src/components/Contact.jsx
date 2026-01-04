@@ -58,10 +58,10 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-light text-primary mb-6"
           >
-            Get In Touch
+            Contact
           </motion.h2>
           <p className="text-slate-400 text-lg font-light">
-            Have a question or want to work together? Drop me a message.
+           Whether you have an idea, a project, or just want to talk tech — I’m open to collaborations, freelance work...
           </p>
         </div>
 
