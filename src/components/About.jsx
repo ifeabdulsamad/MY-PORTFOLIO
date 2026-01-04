@@ -9,7 +9,7 @@ const skills = [
   { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
   { name: "Tailwind", icon: "/assets/Tailwind CSS.png" },
   { name: "npm", icon: "https://cdn.simpleicons.org/npm/CB3837" },
-  { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
+  // { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
   { name: "GitHub", icon: "https://cdn.simpleicons.org/github/white" },
   { name: "Git", icon: "/assets/git.png" },
   { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28" },
