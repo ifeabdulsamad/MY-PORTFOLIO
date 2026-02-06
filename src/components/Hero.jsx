@@ -35,7 +35,7 @@ export default function Hero() {
 
             <p className="text-xl text-white/60 mb-10 max-w-xl w-full md:w-3/4 lg:w-auto leading-tight md:text-center lg:text-left">
               Hi, I'm <span className="text-white font-semibold">Ifeoluwa</span>{" "}
-              — designing and building digital products at the intersection of
+              designing and building digital products at the intersection of
               code, design, and AI <br />
               DESIGN meets CODE
             </p>
@@ -54,7 +54,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="min-w-[220px]  border-2 border-white/20 rounded-full px-8 py-4 hover:border-primary hover:text-primary transition-all font-semibold inline-flex items-center justify-center gap-2 group"
+                className="btn-contact min-w-[220px]  border-2 border-white/20 rounded-full px-8 py-4 hover:border-primary hover:text-primary transition-all font-semibold inline-flex items-center justify-center gap-2 group"
                 style={{ cursor: 'url("/cursor.svg") 2 2, auto' }}
               >
                 Contact Me

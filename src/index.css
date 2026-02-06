@@ -129,6 +129,17 @@ section {
 }
 
 /* Utilities */
+.btn-contact {
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--primary-glow);
+
+}
 .btn-primary {
   background: var(--primary);
   color: white;
