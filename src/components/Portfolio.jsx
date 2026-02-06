@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const categories = [
   { id: "web", label: "Web" },
@@ -24,7 +25,7 @@ const projects = [
     category: "web",
     image: "/assets/mu.PNG",
     description:
-      "A sleek and minimal personal Links Page for social media bios",
+      "A personal Links Page for social media bios",
     tags: ["HTML", "CSS3"],
     link: "https://connectwithife.netlify.app",
     github: "#",
@@ -40,21 +41,21 @@ const projects = [
     github: "#",
   },
   {
-    id: 5,
-    title: "loading...",
+    id: 4,
+    title: "Personal Portfolio",
     category: "ui",
-    image: "/assets/card_img.png",
-    description: "Loading screen designs for mobile applications",
-    tags: ["Figma", "Photoshop", "UI/UX", "Mobile"],
+    image: "/assets/catalog2.png",
+    description: "UI design of my personal portfolio using Figma",
+    tags: ["Figma", "Photoshop", "UI/UX", "desktop view"],
     link: "#",
     github: "#",
   },
   {
-    id: 6,
-    title: "Loading...",
+    id: 5,
+    title: "NOLA ATELIER",
     category: "Brand Design",
-    image: "/assets/card_img.png",
-    description: "Loading screen designs for mobile applications",
+    image: "/assets/catalog.png",
+    description: "A fashion brand focus on gen-z style of fashion",
     tags: ["Figma", "Photoshop", "UI/UX", "Mobile"],
     link: "#",
     github: "#",
@@ -166,17 +167,30 @@ export default function Portfolio() {
                     {/* Footer - Larger */}
                     <div className="pt-5 mt- border-t border-white/5">
                       <div className="flex items-center justify-between">
-                        <a
-                          href={project.link}
-                          className="text-white text-sm font-medium hover:text-primary transition-colors flex items-center gap-2 group/link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Project
-                          <span className="group-hover/link:translate-x-1 transition-transform">
-                            →
-                          </span>
-                        </a>
+                        {project.category === "ui" ||
+                        project.category === "Brand Design" ? (
+                          <Link
+                            to={`/project/${project.id}`}
+                            className="text-white text-sm font-medium hover:text-primary transition-colors flex items-center gap-2 group/link"
+                          >
+                            View Project
+                            <span className="group-hover/link:translate-x-1 transition-transform">
+                              →
+                            </span>
+                          </Link>
+                        ) : (
+                          <a
+                            href={project.link}
+                            className="text-white text-sm font-medium hover:text-primary transition-colors flex items-center gap-2 group/link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Project
+                            <span className="group-hover/link:translate-x-1 transition-transform">
+                              →
+                            </span>
+                          </a>
+                        )}
 
                         <a
                           href={project.github || "#"}

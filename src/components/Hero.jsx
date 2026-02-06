@@ -54,7 +54,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="min-w-[220px]  border-2 border-white/20 rounded-full px-8 py-4 hover:border-primary hover:text-primary transition-all font-semibold inline-flex items-center justify-center gap-2 group"
+                className="btn-contact min-w-[220px]  border-2 border-white/20 rounded-full px-8 py-4 hover:border-primary hover:text-primary transition-all font-semibold inline-flex items-center justify-center gap-2 group"
                 style={{ cursor: 'url("/cursor.svg") 2 2, auto' }}
               >
                 Contact Me

@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -5,6 +6,7 @@ import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ProjectDetail from './components/ProjectDetail';
 
 function App() {
   return (
@@ -17,14 +19,23 @@ function App() {
 
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        {/* <Skills /> */}
-        <Portfolio />
-        <Contact />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <About />
+              {/* <Skills /> */}
+              <Portfolio />
+              <Contact />
+              <Footer />
+            </>
+          } />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+        </Routes>
       </main>
     </div >
   );
 }
+
 
 export default App;

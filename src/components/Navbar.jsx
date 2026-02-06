@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, FileText, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 const navLinks = [
-  { name: "home", href: "#home" },
-  { name: "about", href: "#about" },
-  { name: "projects", href: "#portfolio" },
-  { name: "contact", href: "#contact" },
+  { name: "home", href: "/#home" },
+  { name: "about", href: "/#about" },
+  { name: "projects", href: "/#portfolio" },
+  { name: "contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -52,6 +55,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle hash scroll on cross-page navigation
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash) {
+      const id = location.hash.replace("#", "");
+      // Small delay to ensure components are mounted
+      setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
+    }
+  }, [location]);
+
   // Intersection Observer for active section highlighting
   useEffect(() => {
     const observerOptions = {
@@ -65,7 +79,7 @@ export default function Navbar() {
         if (entry.isIntersecting) {
           const id = entry.target.id;
           // Find the nav link that matches this id
-          const match = navLinks.find((link) => link.href === `#${id}`);
+          const match = navLinks.find((link) => link.href.endsWith(`#${id}`));
           if (match) {
             setActiveSection(match.name);
           }
@@ -80,7 +94,7 @@ export default function Navbar() {
 
     // Observe all sections mentioned in navLinks
     navLinks.forEach((link) => {
-      const sectionId = link.href.replace("#", "");
+      const sectionId = link.href.split("#")[1];
       const element = document.getElementById(sectionId);
       if (element) observer.observe(element);
     });
@@ -134,22 +148,27 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 h-20 flex items-center ${
-        isOpen
-          ? "bg-transparent"
-          : scrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-300 h-20 flex items-center ${isOpen
+        ? "bg-transparent"
+        : scrolled
           ? "glass-nav shadow-lg shadow-black/10"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center h-full">
         {/* Logo */}
-        <a
-          href="#home"
+        <Link
+          to="/#home"
           className="text-xl md:text-2xl font-normal text-white hover:text-primary transition-colors"
+          onClick={(e) => {
+            if (location.pathname === "/") {
+              e.preventDefault();
+              scrollToSection("home");
+            }
+          }}
         >
           Ife Abdulsamad
-        </a>
+        </Link>
 
         {/* Desktop Nav - Center Pill Container */}
         <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -167,15 +186,16 @@ export default function Navbar() {
                   paddingTop: "10px",
                   paddingBottom: "10px",
                 }}
-                className={`relative rounded-full text-md font-light transition-colors duration-300 ${
-                  activeSection === link.name
-                    ? "text-white"
-                    : "text-slate-300 hover:text-white"
-                }`}
+                className={`relative rounded-full text-md font-light transition-colors duration-300 ${activeSection === link.name
+                  ? "text-white"
+                  : "text-slate-300 hover:text-white"
+                  }`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  const id = link.href.replace("#", "");
-                  scrollToSection(id);
+                  const id = link.href.split("#")[1];
+                  if (location.pathname === "/") {
+                    e.preventDefault();
+                    scrollToSection(id);
+                  }
                 }}
               >
                 <span className="relative z-10">{link.name}</span>
@@ -261,9 +281,11 @@ export default function Navbar() {
                         href={link.href}
                         className="text-2xl font-light text-slate-300 hover:text-white transition-colors"
                         onClick={(e) => {
-                          e.preventDefault();
-                          const id = link.href.replace("#", "");
-                          scrollToSection(id);
+                          const id = link.href.split("#")[1];
+                          if (location.pathname === "/") {
+                            e.preventDefault();
+                            scrollToSection(id);
+                          }
                           setIsOpen(false);
                         }}
                       >

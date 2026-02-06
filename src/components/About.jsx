@@ -41,33 +41,36 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-7"
           >
-            <div className="space-y-4 text-justify font- leading-normal text-white/60 ">
+            <div className="space-y-4 text-justify leading-normal text-white/60">
               <p className="text-xl text-white/80 leading-tight border-l-2 border-primary/30 pl-4">
-                I’m <span className="">Ifeoluwa</span>, a frontend developer and
-                visual designer.
+                I’m <span className="">Ifeoluwa</span>, a frontend developer
+                visual designer and mechanical engineering student.
               </p>
 
               <p className="text-xl text-white/80 leading-tight border-l-2 border-primary/30 pl-4">
-                I create interfaces that are clear, intuitive, and easy to use,
-                blending clean design with functional code. Every layout, every
-                button, every interaction is built with clarity, intention, and
-                usability in mind.
+                I build clear intuitive interfaces by blending clean design with
+                functional frontend code. Every layout and interaction is
+                crafted with intention usability and attention to detail.
               </p>
 
               <p className="text-xl text-white/75 leading-tight">
-                Beyond building, I document the journey sharing what I learn,
-                the challenges I face, and the wins along the way. Through
-                content, I explore how design, development, and AI intersect,
-                giving others a look into the process behind creating digital
+                My engineering background influences how I think and build. It
+                pushes me to approach problems logically while my design
+                experience helps me focus on clarity flow and how users actually
+                experience what I create.
+              </p>
+
+              <p className="text-xl text-white/75 leading-tight">
+                Beyond building I document my journey sharing what I learn the
+                challenges I face and the progress I make along the way. Through
+                content I explore how design development and AI intersect and
+                give an honest look into the process behind creating digital
                 experiences.
               </p>
 
               <p className="text-xl text-white/75 leading-tight">
-                I’m passionate about crafting experiences that feel human, a
-                website that’s enjoyable to navigate, a design that communicates
-                effortlessly, or content that inspires others to grow alongside
-                me. My goal is to build tools and experiences that do not only
-                function well but also looks great and tell a story.
+                IMy goal is to build tools and experiences that work well look
+                great and tell a meaningful story.
               </p>
             </div>
           </motion.div>
