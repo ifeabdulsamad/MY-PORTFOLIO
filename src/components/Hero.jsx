@@ -35,8 +35,8 @@ export default function Hero() {
 
             <p className="text-xl text-white/60 mb-10 max-w-xl w-full md:w-3/4 lg:w-auto leading-tight md:text-center lg:text-left">
               Hi, I'm <span className="text-white font-semibold">Ifeoluwa</span>{" "}
-              designing and building digital products at the intersection of
-              code, design, and AI <br />
+              — designing and building digital products at the intersection of
+              code and design <br />
               DESIGN meets CODE
             </p>
 
